@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-text-color: #1c2833; /* Darker shade for primary text */
+    --secondary-text-color: #5d6d7e; /* Grayish-blue for secondary text */
+    --accent-color: #007bff; /* Bright blue for accents */
+    --accent-color-dark: #0056b3; /* Darker blue for hover state */
+    --background-color: #f8f9fa; /* Light gray for background */
+    --card-shadow-color: #dcdde1; /* Light shadow for cards */
+    --navbar-background: white; /* White for navbar */
+    --navbar-text-color: #0c0101; /* Dark for navbar text */
+    --navbar-hover-color: #007bff; /* Bright blue for navbar hover */
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: var(--primary-text-color);
+    background-color: var(--background-color);
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    color: var(--secondary-text-color);
+    line-height: 1.4rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1150px;
+    margin-inline: auto;
+    overflow: hidden;
+}
+
+nav {
+    background-color: var(--navbar-background);
+    box-shadow: 0 0 4px var(--card-shadow-color);
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+nav.scrolled {
+    background-color: var(--accent-color); /* Change background on scroll */
+    box-shadow: 0 4px 6px var(--card-shadow-color);
+}
+
+.main-nav {
+    justify-content: space-between;
+    padding-block: 8px;
+    transition: padding 0.3s ease; /* Transition for padding */
+}
+
+nav.scrolled .main-nav {
+    padding-block: 4px;
+}
+
+.company-logo img {
+    width: 120px;
+}
+
+.nav-links ul {
+    gap: 16px;
+}
+
+.hover-link {
+    cursor: pointer;
+    color: var(--navbar-text-color);
+    transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.hover-link:hover {
+    color: var(--navbar-hover-color);
+}
+
+.nav-item.active {
+    color: var(--accent-color);
+}
+
+.search-bar {
+    height: 32px;
+    gap: 8px;
+}
+
+.news-input {
+    width: 200px;
+    height: 100%;
+    padding-inline: 12px;
+    border-radius: 4px;
+    border: 2px solid var(--card-shadow-color);
+    font-family: "Roboto", sans-serif;
+}
+
+.search-button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+}
+
+.search-button:hover {
+    background-color: var(--accent-color-dark);
+}
+
+main {
+    padding-block: 20px;
+    margin-top: 150px;
+}
+
+.cards-container {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    align-items: start;
+}
+
+.card {
+    width: 360px;
+    min-height: 400px;
+    box-shadow: 0 0 4px var(--card-shadow-color);
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #fff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 1px 1px 8px var(--card-shadow-color);
+    background-color: #f1f3f4;
+    transform: translateY(-2px);
+}
+
+.card-header img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 12px;
+}
+
+.news-source {
+    margin-block: 12px;
+}
+
+#logo {
+    width: 114px;
+    height: 114px;
+}
