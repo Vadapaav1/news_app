@@ -1,7 +1,5 @@
-const API_KEY = "7c5ff42229d24f2fb11a8730194980e9";
-const url = "https://saurav.tech/NewsAPI/top-headlines/category/health/in.json";
 
-window.addEventListener("load", () => fetchNews("India"));
+window.addEventListener("load", () => fetchNews("home"));
 
 function reload() {
     window.location.reload();
