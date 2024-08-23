@@ -1,6 +1,4 @@
 
-window.addEventListener("load", () => fetchNews("home"));
-
 function reload() {
     window.location.reload();
 }
