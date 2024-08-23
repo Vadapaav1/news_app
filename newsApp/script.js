@@ -1,5 +1,5 @@
 const API_KEY = "7c5ff42229d24f2fb11a8730194980e9";
-const url = "https://newsapi.org/v2/everything?q=";
+const url = "https://saurav.tech/NewsAPI/top-headlines/category/health/in.json";
 
 window.addEventListener("load", () => fetchNews("India"));
 
@@ -8,9 +8,20 @@ function reload() {
 }
 
 async function fetchNews(query) {
-    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
-    const data = await res.json();
-    bindData(data.articles);
+    if(query === "home"){
+        
+        const res = await fetch('https://saurav.tech/NewsAPI/everything/cnn.json');
+        const data = await res.json();
+        bindData(data.articles);
+    }
+    else{
+        const res = await fetch(`https://saurav.tech/NewsAPI/top-headlines/category/${query}/in.json`);
+        const data = await res.json();
+        bindData(data.articles);
+    }
+
+    
+      
 }
 
 function bindData(articles) {
@@ -19,36 +30,37 @@ function bindData(articles) {
 
     cardsContainer.innerHTML = "";
 
-    articles.forEach((article) => {
-        if (!article.urlToImage) return;
+    articles.forEach((it) => {
+        if (!it.urlToImage) return;
         const cardClone = newsCardTemplate.content.cloneNode(true);
-        fillDataInCard(cardClone, article);
+        fillDataInCard(cardClone, it);
         cardsContainer.appendChild(cardClone);
     });
 }
 
-function fillDataInCard(cardClone, article) {
+function fillDataInCard(cardClone, it) {
     const newsImg = cardClone.querySelector("#news-img");
     const newsTitle = cardClone.querySelector("#news-title");
     const newsSource = cardClone.querySelector("#news-source");
     const newsDesc = cardClone.querySelector("#news-desc");
 
-    newsImg.src = article.urlToImage;
-    newsTitle.innerHTML = article.title;
-    newsDesc.innerHTML = article.description;
+    newsImg.src = it.urlToImage;
+    newsTitle.innerHTML = "LOVE !!!!";
+    newsDesc.innerHTML = it.description;
 
-    const date = new Date(article.publishedAt).toLocaleString("en-US", {
+    const date = new Date(it.publishedAt).toLocaleString("en-US", {
         timeZone: "Asia/Jakarta",
     });
 
-    newsSource.innerHTML = `${article.source.name} · ${date}`;
+    newsSource.innerHTML = `${it.source.name} · ${date}`;
 
     cardClone.firstElementChild.addEventListener("click", () => {
-        window.open(article.url, "_blank");
+        window.open(it.url, "_blank");
     });
 }
 
 let curSelectedNav = null;
+
 function onNavItemClick(id) {
     fetchNews(id);
     const navItem = document.getElementById(id);
