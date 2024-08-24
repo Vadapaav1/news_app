@@ -41,7 +41,7 @@ function fillDataInCard(cardClone, it) {
     const newsDesc = cardClone.querySelector("#news-desc");
 
     newsImg.src = it.urlToImage;
-    newsTitle.innerHTML = "LOVE !!!!";
+    newsTitle.innerHTML = it.title;
     newsDesc.innerHTML = it.description;
 
     const date = new Date(it.publishedAt).toLocaleString("en-US", {
